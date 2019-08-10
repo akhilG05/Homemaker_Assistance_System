@@ -1,0 +1,19 @@
+{% extends 'mobile/base.html' %}
+
+{% block title %}Calling{% endblock %}
+
+{% block content_title %}Calling {{ contact.name }}{% endblock %}
+
+{% block voiceRecognizer %}onload="call_voice()"{% endblock %}
+
+{% block crumbs %}
+    &rsaquo; <a href="{% url 'mobile:index' %}">Mobile</a>
+    &rsaquo; <a href="{% url 'mobile:call-select-contact' %}">Call</a>
+{% endblock %}
+
+{% block content %}
+	{% include 'mobile/messages.html' %}
+	<div class="text-center">
+		<span class="glyphicon glyphicon-earphone" style="font-size: 100pt;"></span>
+	</div>
+{% endblock %}

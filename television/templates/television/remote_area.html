@@ -1,0 +1,50 @@
+{% extends 'television/base.html' %}
+
+{% block title %}Television Module{% endblock %}
+
+{% block content_title %}{{ remote }}{% endblock %}
+
+{% block voiceRecognizer %}onload="startConverting()"{% endblock %}
+
+{% block crumbs %}
+    &rsaquo; <a href="{% url 'television:index' %}">Television</a>
+    &rsaquo; <a href="{% url 'television:brands' %}">Brands</a>
+    &rsaquo; <a href="{% url 'television:remote-models' slug=remote.brand.slug %}">{{ remote.brand.name }} Remote Models</a>
+    &rsaquo; <a href="{% url 'television:remote-detail' slug=remote.slug %}">{{ remote.model }}</a>
+    &rsaquo; <a href="{% url 'television:remote-area' slug=remote.slug %}">Operate</a>
+{% endblock %}
+
+{% block content %}
+	{% include 'television/messages.html' %}
+	<div class="container">
+	  <div class="remote-body">
+	    <div class="remote-screen">
+	      <div id="remote-typed"></div>
+	    </div>
+	    <div class="remote-button-row">
+	      <div class="button c" onclick="buttonClickedremote('POWER','{{remote.slug}}')">ON</div>
+	      <div class="button" onclick="buttonClickedremote('0','{{remote.slug}}')">0</div>
+	      <div class="button l" onclick="buttonClickedremote('MUTE','{{remote.slug}}')"><span class="glyphicon glyphicon-volume-off"></span></div>
+	      <div class="button l" onclick="buttonClickedremote('CH+','{{remote.slug}}')">Ch+</div>
+	    </div>
+	    <div class="remote-button-row">
+	      <div class="button" onclick="buttonClickedremote('1','{{remote.slug}}')">1</div>
+	      <div class="button" onclick="buttonClickedremote('2','{{remote.slug}}')">2</div>
+	      <div class="button" onclick="buttonClickedremote('3','{{remote.slug}}')">3</div>
+	      <div class="button l" onclick="buttonClickedremote('CH-','{{remote.slug}}')">Ch-</div>
+	    </div>
+	    <div class="remote-button-row">
+	      <div class="button" onclick="buttonClickedremote('4','{{remote.slug}}')">4</div>
+	      <div class="button" onclick="buttonClickedremote('5','{{remote.slug}}')">5</div>
+	      <div class="button" onclick="buttonClickedremote('6','{{remote.slug}}')">6</div>
+	      <div class="button l" onclick="buttonClickedremote('VOL+','{{remote.slug}}')">Vol+</div>
+	    </div>
+	    <div class="remote-button-row">
+	      <div class="button" onclick="buttonClickedremote('7','{{remote.slug}}')">7</div>
+	      <div class="button" onclick="buttonClickedremote('8','{{remote.slug}}')">8</div>
+	      <div class="button" onclick="buttonClickedremote('9','{{remote.slug}}')">9</div>
+	      <div class="button l" onclick="buttonClickedremote('VOL-','{{remote.slug}}')">Vol-</div>
+	    </div>
+	  </div>
+	</div>
+{% endblock %}

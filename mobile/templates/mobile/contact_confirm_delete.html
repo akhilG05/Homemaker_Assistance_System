@@ -1,0 +1,27 @@
+{% extends 'mobile/base.html' %}
+
+{% block title %}Delete Contact{% endblock %}
+
+{% block content_title %}Delete Contact{% endblock %}
+
+{% block voiceRecognizer %}onload="confirmDelete()"{% endblock %}
+
+{% block crumbs %}
+    &rsaquo; <a href="{% url 'mobile:index' %}">Mobile</a>
+    &rsaquo; <a href="{% url 'mobile:all-contacts' %}">Contacts</a>
+    &rsaquo; <a href="{% url 'mobile:contact' slug=contact.slug %}">{{ contact.name }}</a>
+	&rsaquo; Confirm delete</a>
+{% endblock %}
+
+{% block content %}
+	<script type="text/javascript">
+		var msg = new SpeechSynthesisUtterance('Are you sure you want to delete this contact?');
+		window.speechSynthesis.speak(msg);
+	</script>
+	<p>Are you sure you want to delete "{{ contact }}"?</p>
+	<form method="post">
+		{% csrf_token %}
+		<input type="button" value="Cancel" class="btn btn-success quarterWidth" id="cancelDeleteOperation" onclick="window.history.go(-1);" />
+		<input type="submit" value="Confirm" class="btn btn-danger quarterWidth" id="confirmDeletebtn" />
+	</form>
+{% endblock %}

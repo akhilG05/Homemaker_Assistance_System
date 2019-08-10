@@ -1,0 +1,5 @@
+Django==2.2.4
+django_extensions
+requests
+pyserial
+RPi.GPIO
