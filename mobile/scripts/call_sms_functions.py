@@ -1,20 +1,20 @@
 import serial
-import RPi.GPIO as GPIO
+# import RPi.GPIO as GPIO
 import os,time
 from django.contrib.auth.models import User
 from accounts.models import RPiUser
 from mobile.models import Message,Contact
 
-GPIO.setmode(GPIO.BOARD)
-port=serial.Serial("/dev/ttyS0",baudrate=9600,timeout=1)
+# GPIO.setmode(GPIO.BOARD)
+# port=serial.Serial("/dev/ttyS0",baudrate=9600,timeout=1)
 
-def connect_to_port():
-	try:
-		port=serial.Serial("/dev/ttyS0",baudrate=9600,timeout=1)
-	except serial.serialutil.SerialException:
-		port.close()
-		time.sleep(1)
-		port.open()
+# def connect_to_port():
+# 	try:
+# 		port=serial.Serial("/dev/ttyS0",baudrate=9600,timeout=1)
+# 	except serial.serialutil.SerialException:
+# 		port.close()
+# 		time.sleep(1)
+# 		port.open()
 
 def incoming_call_sms(module_user):
 	connect_to_port()
