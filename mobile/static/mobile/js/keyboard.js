@@ -7,9 +7,9 @@ var btn = document.getElementById("keyboardBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-button.onclick = function() {
-    modal.style.display = "block";
-}
+// button.onclick = function() {
+//     modal.style.display = "block";
+// }
 
  $('#keyboardBtn').on('click', function(e) {
       modal.style.display = "block";

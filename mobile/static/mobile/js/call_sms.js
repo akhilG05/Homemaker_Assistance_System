@@ -44,8 +44,13 @@ var closeSMSbtn = document.getElementById('closeSMSbtn');
 var chatroom_url = document.getElementById('chatroom_url');
 var modal = document.getElementById('myModal');
 var phoneNumber='';
-smsModal.style.display="none";
 
+if (smsModal != null) {
+  smsModal.style.display="none";
+}
+else {
+  smsModal = null;
+}
 
 function buttonClicked(btn) {
   var screenClass = document.getElementById("keyboard-typed");
@@ -213,10 +218,24 @@ $('#sendSMS').on('submit', function(event){
 });
 
 function sendSMS(){
+
   var textData = document.getElementById("id_text");
   var phone_number = document.getElementById("contact_number");
-  textData = textData.value;
-  phone_number = phone_number.innerHTML;
+
+  if (textData != null) {
+    textData = textData.value;
+  }
+  else {
+    textData = null;
+  }
+
+  if (phone_number != null) {
+    phone_number = phone_number.innerHTML;
+  }
+  else {
+    phone_number = null;
+  }
+
   var jsondata = {
     'text':textData,
     'phone_number': phone_number
@@ -236,4 +255,3 @@ function sendSMS(){
       }
   });
 }
-
