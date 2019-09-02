@@ -49,10 +49,18 @@ $.ajaxSetup({
   }
 });
 function redirectvoice(target){
+  console.log('loading json0');
   var jsondata = {
     'target':target
   }
   $.ajax({
+    // _headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    // get headers() {
+    //   return this._headers;
+    // },
+    // set headers(value) {
+    //   this._headers = value;
+    // },
     type: 'POST',
     url: "http://localhost:8000/audiosystem/voice-recognizer/",
     data: jsondata,

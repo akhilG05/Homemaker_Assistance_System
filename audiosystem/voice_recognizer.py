@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.urls import reverse
 from django.contrib import messages
 from mobile.models import Contact
+from television.models import Brand, Remote
 import os
 import requests
 import csv
@@ -16,9 +17,15 @@ def preprocess_text_data(raw_text_data):
 	elif raw_text_data == 'open mobile':
 		raw_text_data = raw_text_data.split( )
 		raw_text_data =  raw_text_data[1]
-	elif ((raw_text_data == 'open tv') or (raw_text_data == 'open television')):
+	elif (raw_text_data == 'open contacts') or (raw_text_data == 'show contacts') or (raw_text_data == 'open contact') or (raw_text_data == 'show contact') or (raw_text_data == 'contacts book') or (raw_text_data == 'phone book') or (raw_text_data == 'contact book') or (raw_text_data == 'go to contacts'):
+		raw_text_data = "contacts";
+	elif ((raw_text_data == 'open tv') or (raw_text_data == 'open TV') or (raw_text_data == 'open television')):
 		raw_text_data = raw_text_data.split( )
 		raw_text_data =  raw_text_data[1]
+	elif (raw_text_data == 'Add Remote') or (raw_text_data == 'add remote') or (raw_text_data == 'open remote') or (raw_text_data == 'remote') or (raw_text_data == 'go to remote') or (raw_text_data == 'show remote') or (raw_text_data == 'select remote') or (raw_text_data == 'show remote list'):
+		raw_text_data = "remote";
+	elif (raw_text_data == 'open contacts') or (raw_text_data == 'show contacts') or (raw_text_data == 'open contact') or (raw_text_data == 'show contact') or (raw_text_data == 'contacts book') or (raw_text_data == 'phone book') or (raw_text_data == 'contact book') or (raw_text_data == 'go to contacts'):
+		raw_text_data = "contacts";
 	elif (raw_text_data == 'open contacts') or (raw_text_data == 'show contacts') or (raw_text_data == 'open contact') or (raw_text_data == 'show contact') or (raw_text_data == 'contacts book') or (raw_text_data == 'phone book') or (raw_text_data == 'contact book') or (raw_text_data == 'go to contacts'):
 		raw_text_data = "contacts";
 	elif (("open" in raw_text_data) or ("show" in raw_text_data)) and (("contacts" in raw_text_data) or ("contact" in raw_text_data)):
@@ -43,11 +50,14 @@ def get_redirect_url(raw_text_data,user):
 	elif data == 'mobile':
 		responseurl = 'mobile:index'
 		slug = ''
+	elif data == 'contacts':
+		responseurl = 'mobile:all-contacts'
+		slug = ''
 	elif data == 'tv':
 		responseurl = 'television:index'
 		slug = ''
-	elif data == 'contacts':
-		responseurl = 'mobile:all-contacts'
+	elif data == 'remote':
+		responseurl = 'television:brands'
 		slug = ''
 	elif "open contact" in data:
 		name = data.split( )
@@ -91,7 +101,8 @@ def get_redirect_url(raw_text_data,user):
 			'url': responseurl+slug,
 		})
 	elif data.startswith('call'):
-		name = data.split( )
+		name = data.split()
+		get_contact = Contact.objects.filter(user=user)
 		if len(name) == 1:
 			responseurl = 'mobile:call-select-contact'
 			slug = ''
@@ -104,13 +115,27 @@ def get_redirect_url(raw_text_data,user):
 				'url': responseurl+slug,
 			})
 	elif data.startswith('message'):
-		name = data.split( )
+		name = data.split()
 		if len(name) == 1:
 			responseurl = 'mobile:message-select-contact'
 			slug = ''
 		else:
 			responseurl = '/mobile/message/'
 			slug = name[1]+str(user)
+			voice_log_data(raw_text_data,responseurl+slug)
+			return JsonResponse({
+				'success': True,
+				'url': responseurl+slug,
+			})
+	elif data.startswith('show'):
+		name = data.split()
+		# get_remote = Remote.objects.filter(user=user, original_name=name[1])
+		if len(name) == 1:
+			responseurl = 'television:brands'
+			slug = ''
+		else:
+			responseurl = '/television/'
+			slug = name[1]+'-'+'tv'+'/'+'remote-models'
 			voice_log_data(raw_text_data,responseurl+slug)
 			return JsonResponse({
 				'success': True,
