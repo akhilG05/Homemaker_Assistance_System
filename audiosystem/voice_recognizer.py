@@ -141,6 +141,20 @@ def get_redirect_url(raw_text_data,user):
 				'success': True,
 				'url': responseurl+slug,
 			})
+	elif data.startswith('select'):
+		name = data.split()
+		# get_remote = Remote.objects.filter(user=user, original_name=name[1])
+		if len(name) == 1:
+			responseurl = 'television'
+			slug = ''
+		else:
+			responseurl = '/television/remote/'
+			slug = name[1]+'tv'+name[2]+'/'+'operate'
+			voice_log_data(raw_text_data,responseurl+slug)
+			return JsonResponse({
+				'success': True,
+				'url': responseurl+slug,
+			})
 	else:
 		return 0
 	voice_log_data(raw_text_data,str(reverse(responseurl)+slug))
