@@ -168,3 +168,179 @@ show lg,/television/lg-tv/remote-models
 show panasonic,/television/panasonic-tv/remote-models
 open mobile,/mobile/
 call akhilesh,/mobile/call/akhileshAnonymousUser
+open tv,/television/
+add remote,/television/brands/
+show sony remote,/television/sony-tv/remote-models
+select sony bravia,/television/remotesonytvbravia/operate
+select sony bravia,/television/remote/sonytvbravia/operate
+open tv,/television/
+select sony bravia,/television/remote/sonytvbravia/operate
+open mobile,/mobile/
+open tv,/television/
+add remote,/television/brands/
+show sony remotes,/television/sony-tv/remote-models
+select sony bravia,/television/remote/sonytvbravia/operate
+go to home,/home/
+open mobile,/mobile/
+open contacts,/mobile/contacts/
+open tv,/television/
+select sony bravia,/television/remote/sonytvbravia/operate
+go to home,/home/
+open mobile,/mobile/
+go to home,/home/
+open tv,/television/
+select sony bravia,/television/remote/sonytvbravia/operate
+add remote,/television/brands/
+show sony remote,/television/sony-tv/remote-models
+show ac remote,/television/ac-tv/remote-models
+show hd remote,/television/hd-tv/remote-models
+show lg remote,/television/lg-tv/remote-models
+add remote,/television/brands/
+show panasonic remotes,/television/panasonic-tv/remote-models
+go to home,/home/
+show television module,/television/television-tv/remote-models
+open tv,/television/
+add remote,/television/brands/
+go to home,/home/
+open contacts,/mobile/contacts/
+open tv,/television/
+add remote,/television/brands/
+show samsung remote,/television/samsung-tv/remote-models
+show sony remote,/television/sony-tv/remote-models
+select sony bravia,/television/remote/sonytvbravia/operate
+go to home,/home/
+open mobile,/mobile/
+open contacts,/mobile/contacts/
+call akhilesh,/mobile/call/akhileshAnonymousUser
+call akhilesh,/mobile/call/akhilesh
+call akhilesh,/mobile/call/akhilesh
+open mobile,/mobile/
+open tv,/television/
+select sony bravia,/television/remote/sonytvbravia/operate
+go to home,/home/
+open tv,/television/
+go to home,/home/
+open contacts,/mobile/contacts/
+open tv,/television/
+open mobile,/mobile/
+open tv,/television/
+go to home,/home/
+go to home,/home/
+open tv,/television/
+open tv,/television/
+go to home,/home/
+open mobile,/mobile/
+go to home,/home/
+open tv,/television/
+select sony bravia remote,/television/remote/sonytvbravia/operate
+go to home,/home/
+open mobile,/mobile/
+go to home,/home/
+call akhilesh,/mobile/call/akhilesh
+open tv,/television/
+add remote,/television/brands/
+show sony remote,/television/sony-tv/remote-models
+show me lg remote,/television/me-tv/remote-models
+add remote,/television/brands/
+show in lg remote,/television/in-tv/remote-models
+open tv,/television/
+show remote,/television/brands/
+show,/television/brands/
+show samsung remotes,/television/samsung-tv/remote-models
+show panasonic remotes,/television/panasonic-tv/remote-models
+show lg remote,/television/lg-tv/remote-models
+go to home,/home/
+open mobile,/mobile/
+open contacts,/mobile/contacts/
+go to home,/home/
+open tv,/television/
+add remote,/television/brands/
+select sony bravia remote,/television/remote/sonytvbravia/operate
+open mobile,/mobile/
+open contact,/mobile/contacts/
+open tv,/television/
+add remote,/television/brands/
+add remote,/television/brands/
+show sony remote,/television/sony-tv/remote-models
+select sony bravia,/television/remote/sonytvbravia/operate
+open tv,/television/
+select sony bravia,/television/remote/sonytvbravia/operate
+go to home,/home/
+select sony bravia,/television/remote/sonytvbravia/operate
+open mobile,/mobile/
+open tv,/television/
+add remote,/television/brands/
+show sony remote,/television/sony-tv/remote-models
+select sony bravia sony bravia,/television/remote/sonytvbravia/operate
+go to home,/home/
+open mobile,/mobile/
+show contact,/mobile/contacts/
+add contact,/mobile/contact/add/
+open mobile,/mobile/
+show contact,/mobile/contacts/
+open remote,/television/brands/
+open tv,/television/
+add remote,/television/brands/
+show sony tv,/television/sony-tv/remote-models
+remote,/television/brands/
+show sony tv,/television/sony-tv/remote-models
+show sony bravia,/television/sony-tv/remote-models
+open tv,/television/
+add remote,/television/brands/
+select remote,/television/brands/
+show sony remote,/television/sony-tv/remote-models
+select sony bravia,/television/remote/sonytvbravia/operate
+go to home,/home/
+open tv,/television/
+add remote,/television/brands/
+open mobile,/mobile/
+home,/home/
+go to home,/home/
+go to home,/home/
+home,/home/
+go to home,/home/
+go to home,/home/
+call now,/mobile/call/now
+mobile,/mobile/
+go to home,/home/
+mobile,/mobile/
+tv,/television/
+open mobile,/mobile/
+open tv,/television/
+open mobile,/mobile/
+go to home,/home/
+open news,/news/
+open news,/news/
+open news,/news/
+open news,/news/
+open calculator,/calculator/
+open news,/news/
+open calculator,/calculator/
+go to home,/home/
+open tv,/television/
+go to home,/home/
+open mobile,/mobile/
+open news,/news/
+open calculator,/calculator/
+open tv,/television/
+open tv,/television/
+open mobile,/mobile/
+open home,/home/
+go to home,/home/
+go to home,/home/
+set alarm,/clock/alarm/
+clock,/clock/
+open calendar,/eventCalendar/calendar/
+open news,/news/
+show room temperature,/room/
+show current condition,/television/current-tv/remote-models
+go to home,/home/
+open current conditions,/room/
+open calculator,/calculator/
+open clock,/clock/
+open calendar,/eventCalendar/calendar/
+go to home,/home/
+open music,/music/
+open music,/music/
+open music,/music/
+music,/music/

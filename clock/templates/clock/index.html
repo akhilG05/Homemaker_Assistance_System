@@ -1,0 +1,39 @@
+{% extends 'clock/base.html' %}
+
+{% block title %}Clock{% endblock %}
+
+{% block content_title %}Clock{% endblock %}
+
+{% block voiceRecognizer %}onload="startConverting()"{% endblock %}
+
+{% block crumbs %}
+    &rsaquo; <a href="{% url 'clock:index' %}">Clock</a>
+{% endblock %}
+
+
+{% block content %}
+	<div class="row">
+		<a href="{% url 'clock:alarm' %}">
+			<div class="col-sm-3 col-sm-offset-3 col-md-3 col-md-offset-3 col-3">
+				<div class="panel homePage" style="background-color: #FF5733;">
+					<div class="panel-body">
+						<span class="fa fa-bell"></span>&nbsp; Alarm
+						<br>
+						<b class="homeBig">Remind Me!</b>	
+					</div>
+				</div>
+			</div>
+		</a>
+		<a href="{% url 'eventCalendar:calendar' %}">
+			<div class="col-sm-3 col-md-3 col-3">
+				<div class="panel homePage" style="background-color: rgb(194, 26, 82);">
+					<div class="panel-body">
+						<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Calendar
+						<br>
+						<b class="homeBig">Events</b>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+{% endblock %}

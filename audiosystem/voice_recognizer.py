@@ -18,18 +18,30 @@ def preprocess_text_data(raw_text_data):
 		raw_text_data = raw_text_data.split( )
 		raw_text_data =  raw_text_data[1]
 	elif (raw_text_data == 'open contacts') or (raw_text_data == 'show contacts') or (raw_text_data == 'open contact') or (raw_text_data == 'show contact') or (raw_text_data == 'contacts book') or (raw_text_data == 'phone book') or (raw_text_data == 'contact book') or (raw_text_data == 'go to contacts'):
-		raw_text_data = "contacts";
+		raw_text_data = "contacts"
 	elif ((raw_text_data == 'open tv') or (raw_text_data == 'open TV') or (raw_text_data == 'open television')):
 		raw_text_data = raw_text_data.split( )
 		raw_text_data =  raw_text_data[1]
 	elif (raw_text_data == 'Add Remote') or (raw_text_data == 'add remote') or (raw_text_data == 'open remote') or (raw_text_data == 'remote') or (raw_text_data == 'go to remote') or (raw_text_data == 'show remote') or (raw_text_data == 'select remote') or (raw_text_data == 'show remote list'):
-		raw_text_data = "remote";
+		raw_text_data = "remote"
 	elif (raw_text_data == 'open contacts') or (raw_text_data == 'show contacts') or (raw_text_data == 'open contact') or (raw_text_data == 'show contact') or (raw_text_data == 'contacts book') or (raw_text_data == 'phone book') or (raw_text_data == 'contact book') or (raw_text_data == 'go to contacts'):
-		raw_text_data = "contacts";
-	elif (raw_text_data == 'open contacts') or (raw_text_data == 'show contacts') or (raw_text_data == 'open contact') or (raw_text_data == 'show contact') or (raw_text_data == 'contacts book') or (raw_text_data == 'phone book') or (raw_text_data == 'contact book') or (raw_text_data == 'go to contacts'):
-		raw_text_data = "contacts";
+		raw_text_data = "contacts"
+	elif (raw_text_data == 'open news') or (raw_text_data == 'news') or (raw_text_data == 'go to news') or (raw_text_data == 'show news') or (raw_text_data == 'news open'):
+		raw_text_data = "news"
+	elif (raw_text_data == 'open calculator') or (raw_text_data == 'calculator') or (raw_text_data == 'go to calculator') or (raw_text_data == 'show calculator') or (raw_text_data == 'calculator open'):
+		raw_text_data = "calculator"
+	elif (raw_text_data == 'open clock') or (raw_text_data == 'clock') or (raw_text_data == 'go to clock') or (raw_text_data == 'show clock') or (raw_text_data == 'clock show'):
+		raw_text_data = "clock"
+	elif (raw_text_data == 'open alarm') or (raw_text_data == 'alarm') or (raw_text_data == 'go to alarm') or (raw_text_data == 'show alarm') or (raw_text_data == 'set alarm'):
+		raw_text_data = "alarm"
+	elif (raw_text_data == 'open calendar') or (raw_text_data == 'calendar') or (raw_text_data == 'go to calendar') or (raw_text_data == 'show calendar') or (raw_text_data == 'calendar show'):
+		raw_text_data = "calendar"
+	elif (raw_text_data == 'open music') or (raw_text_data == 'music') or (raw_text_data == 'go to music') or (raw_text_data == 'show music') or (raw_text_data == 'play music') or (raw_text_data == 'songs'):
+		raw_text_data = "music"
+	elif (raw_text_data == 'show current conditions') or (raw_text_data == 'current conditions') or (raw_text_data == 'show room temperature') or (raw_text_data == 'what is room temperature') or (raw_text_data == 'show room humidity') or (raw_text_data == 'what is room humidity') or (raw_text_data == 'open current conditions'):
+		raw_text_data = "room"
 	elif (("open" in raw_text_data) or ("show" in raw_text_data)) and (("contacts" in raw_text_data) or ("contact" in raw_text_data)):
-		raw_text_data = raw_text_data.split( );
+		raw_text_data = raw_text_data.split( )
 		for text_Data in raw_text_data:
 			if (text_Data!="open") and (text_Data!="show") and (text_Data!="contact") and (text_Data!="contacts"):
 				raw_text_data =  "open " + "contact " + text_Data
@@ -37,6 +49,7 @@ def preprocess_text_data(raw_text_data):
 	return raw_text_data
 
 def get_redirect_url(raw_text_data,user):
+	print(user)
 	data = preprocess_text_data(raw_text_data)
 	if data == 'home':
 		responseurl = 'home'
@@ -58,6 +71,27 @@ def get_redirect_url(raw_text_data,user):
 		slug = ''
 	elif data == 'remote':
 		responseurl = 'television:brands'
+		slug = ''
+	elif data == 'news':
+		responseurl = 'newsapp:index'
+		slug = ''
+	elif data == 'calculator':
+		responseurl = 'calculator:index'
+		slug = ''
+	elif data == 'clock':
+		responseurl = 'clock:index'
+		slug = ''
+	elif data == 'alarm':
+		responseurl = 'clock:alarm'
+		slug = ''
+	elif data == 'calendar':
+		responseurl = 'eventCalendar:calendar'
+		slug = ''
+	elif data == 'room':
+		responseurl = 'room:index'
+		slug = ''
+	elif data == 'music':
+		responseurl = 'music:index'
 		slug = ''
 	elif "open contact" in data:
 		name = data.split( )
@@ -102,7 +136,6 @@ def get_redirect_url(raw_text_data,user):
 		})
 	elif data.startswith('call'):
 		name = data.split()
-		get_contact = Contact.objects.filter(user=user)
 		if len(name) == 1:
 			responseurl = 'mobile:call-select-contact'
 			slug = ''

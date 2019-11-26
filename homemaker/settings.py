@@ -42,6 +42,14 @@ INSTALLED_APPS = [
     'accounts',
     'mobile',
     'television',
+    'calculator',
+    'weather',
+    'newsapp',
+    'clock',
+    'music',
+    'playlist',
+    'eventCalendar',
+    'room',
     'corsheaders',
 ]
 

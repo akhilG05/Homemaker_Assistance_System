@@ -9,7 +9,8 @@ from django.urls import reverse
 from django import forms
 from .models import RPiUser
 from .forms import UserForm, RPiUserForm
-# Create your views here.
+import requests
+import datetime
 
 def landing_page(request):
 	if request.user.is_authenticated:
@@ -19,9 +20,32 @@ def landing_page(request):
 @login_required
 def home(request):
 	if request.user.is_authenticated:
-		return render(request, 'accounts/home.html',{})
+		now = datetime.datetime.now()
+		url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=a01c87a82cf43b953f9b305db7369f68'
+		city = 'Mulki,IN'
+
+		r = requests.get(url.format(city)).json()
+
+		city_info = {
+			'city' : r['name'],
+			'temperature' : r['main']['temp'],
+			'description' : r['weather'][0]['description'],
+			'icon' : r['weather'][0]['icon'],
+			'time' : now.strftime("%H:%M") ,
+			'day' : now.strftime("%A") ,
+			'date' : now.strftime("%d %b %Y") ,
+		}
+
+		context = {'city_info' : city_info}
+		return render(request, 'accounts/home.html',context)
 	else:
 		return redirect('landing-page')
+
+@login_required
+def team(request):
+	if request.user.is_authenticated:
+		return render(request, 'accounts/team.html')
+
 
 def login_view(request):
 	if request.user.is_authenticated:

@@ -3,36 +3,143 @@
 {% load staticfiles %}
 
 {% block title %}Homemaker Assistance System{% endblock %}
+<!--Shifting title from here-->
 
-{% block content_title %}Welcome to Homemaker Assistance System{% endblock %}
+
+{% block info %}
+	<div class="row">			
+		<a href="{% url 'clock:index' %}">	 
+			<div class="col-sm-2 col-md-2 col-2" >
+				<div class="panel widget" style="background-color: #FF5733;">
+					<p>
+						<span id="txt" style="font-size: 25px"></span>
+						<span id="sec" style="font-size: 20px" color="grey"></span>
+						<br>
+						<span>{{ city_info.day }}, {{ city_info.date }}</span>
+					</p>
+				</div>			
+			</div>					
+		</a>
+		<div class="col-sm-8 col-md-8 col-8">
+			<div class="container">
+				<h3 class="text-center"><b>Welcome to Homemaker Assistance System</b></h3>
+			</div>
+		</div>
+		<a href="{% url 'weather:index' %}">
+			<div class="col-sm-2 col-md-2 col-2">
+				<div class="panel clock" style="background-color: #FF5733;">
+					<article class="media">
+						<div class="media-left">
+							<figure class="image is-50x50">
+								<img src="http://openweathermap.org/img/w/{{ city_info.icon }}.png" alt="Image">
+							</figure>
+						</div>
+						<p>
+							<span class="title">{{ city_info.city }}</span>
+							<br>
+							<span>{{ city_info.temperature }}° C</span>
+							<br> 
+							<span>{{ city_info.description }}</span>
+						</p>
+				</div>
+			</div>
+		</a>
+	</div>
+{% endblock %}
 
 {% block content %}
-		<div class="audioContainer text-center">
-			<i class="fa fa-microphone fa-5x microphone"></i>
-		</div>
-		<div class="row">
-			<a href="{% url 'mobile:index' %}">
-				<div class="col-sm-6 col-md-6 col-12">
-					<div class="panel homePage" style="background-color: #FF5733;">
-						<div class="panel-body">
-							<span class="glyphicon glyphicon-phone"></span>&nbsp; Mobile
-							<br>
-							<b class="homeBig">Use your mobile</b>	
-						</div>
+<!--First row with 4 columns starts here-->
+	<div class="row">
+		<a href="{% url 'mobile:index' %}">
+			<div class="col-sm-4 col-md-4 col-4">
+				<div class="panel homePage" style="background-color: #FF5733;">
+					<div class="panel-body">
+						<span class="glyphicon glyphicon-phone"></span>&nbsp; Mobile
+						<br>
+						<b class="homeBig">Use your mobile</b>	
 					</div>
 				</div>
-			</a>
-			<a href="{% url 'television:index' %}">
-				<div class="col-sm-6 col-md-6 col-12">
-					<div class="panel homePage" style="background-color: #900C3F;">
-						<div class="panel-body">
-							<i class="fa fa-television" aria-hidden="true"></i>&nbsp; Television
-							<br>
-							<b class="homeBig">Control your TV</b>
-						</div>
+			</div>
+		</a>
+		<a href="{% url 'television:index' %}">
+			<div class="col-sm-4 col-md-4 col-4">
+				<div class="panel homePage" style="background-color: rgb(194, 26, 82);">
+					<div class="panel-body">
+						<i class="fa fa-television" aria-hidden="true"></i>&nbsp; Television
+						<br>
+						<b class="homeBig">Control your TV</b>
 					</div>
 				</div>
-			</a>
-		</div>
+			</div>
+		</a>
+		<a href="">
+			<div class="col-sm-4 col-md-4 col-4">
+				<div class="panel homePage" style="background-color:   #FF5733;">
+					<div class="panel-body">
+						<i class="	fa fa-magic" aria-hidden="true"></i>&nbsp; Smart Control
+						<br>
+						<b class="homeBig">Control Your Devices</b>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+<!--First row ends here-->
 
+<!--Second row with 4 columns starts here-->
+	<div class="row">
+		<a href="{% url 'newsapp:index' %}">
+			<div class="col-sm-4 col-md-4 col-4">
+				<div class="panel homePage" style="background-color:  #FF5733;">
+					<div class="panel-body">
+						<i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp; Info
+						<br>
+						<b class="homeBig">News Headlines</b>
+					</div>
+				</div>
+			</div>
+		</a>
+		<a href="{% url 'music:index' %}">
+			<div class="col-sm-4 col-md-4 col-4">
+				<div class="panel homePage" style="background-color:  rgb(194, 26, 82);">
+					<div class="panel-body">
+						<span class="fa fa-music"></span>&nbsp; Music
+						<br>
+						<b class="homeBig">Let the Music Speak</b>	
+					</div>
+				</div>
+			</div>
+		</a>
+		<a href="{% url 'calculator:index' %}">
+			<div class="col-sm-4 col-md-4 col-4">
+				<div class="panel homePage" style="background-color: rgb(194, 26, 82);">
+					<div class="panel-body">
+						<i class="fa fa-calculator" aria-hidden="true"></i>&nbsp; Calculator
+						<br>
+						<b class="homeBig">Make it easy</b>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+<!--Second row ends here-->
+{% endblock %}
+
+{% block note %}
+	<div class="row">			
+		<a href="">
+			<div class="col-sm-2 col-md-2 col-2">
+				<div class="panel clock" style="background-color: #FF5733;">
+					<p>Emergency</p>
+				</div>
+			</div>
+		</a>
+		<a href="{% url 'room:index' %}">
+			<div class="col-sm-2 col-sm-offset-8 col-md-2 col-sm-offset-8 col-2">
+				<div class="panel clock" style="background-color: #FF5733;">
+					<p>Current Conditions</p>
+				</div>
+			</div>
+		</a>
+	</div>
 {% endblock %}

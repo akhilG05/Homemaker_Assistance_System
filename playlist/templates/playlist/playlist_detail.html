@@ -1,0 +1,81 @@
+{% extends 'playlist/base.html' %}
+
+{% block title %} {{ playlist.playlist_name }} {% endblock %}
+
+{% block crumbs %}
+    &rsaquo; <a href="{% url 'music:index' %}">Music</a>
+{% endblock %}
+
+{% block content %}
+<ul class="nav nav-pills">
+		<li><a href="{% url 'music:index' %}">Albums</a></li>
+		<li><a href="{% url 'music:songs' %}">Songs</a></li>
+		<li class="active"><a href="{% url 'playlist:index' %}">Playlists</a></li>
+		<li class="search">
+			<nav class="navbar navbar-light bg-light justify-content-between" role="search" method="get" action="">
+				<form class="form-inline">
+					<input class="form-control mr-sm-2" type="text" class="form-control" name="q" value="{{ request.GET.q }}" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+				</form>
+			</nav>
+		</li>
+	</ul>
+{% endblock %}
+
+{% block player %}
+{% if user.is_authenticated and playlist.user == request.user %}
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-4 col-md-4 col-xs-12 text-center">				
+				{% include 'music/messages.html' %}
+				<img src="{{ playlist.playlist_logo.url }}" alt="{{ playlist.playlist_name }}" width="300px" height="350px" class="image" />
+				<div class="centered">
+					<button type="submit" class="playIcon" id="playAll"><span class="fa fa-play fa-2x"></span></button>
+				</div>
+			</div>
+	
+			<div class="col-sm-8 col-md-8 col-xs-12">
+				<span><font size="6"><b>{{ playlist.playlist_name }}</b></font></span>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">Song</th>
+							<th scope="col"><span class="glyphicon glyphicon-play"></span></th>
+							<th scope="col"><span class="glyphicon glyphicon-heart"></span></th>
+							<th scope="col"><span class="glyphicon glyphicon-trash"></span></th>
+						</tr>
+					</thead>
+					
+					<tbody>
+
+					{% for song in playlist.song.all %}
+						<tr>
+							<th>{{ song.song_title }}</th>
+							<th>
+								<button type="submit" class="btn btn-success btn-xs playButton" name="{{ song.song_title }}" value="{{ song.audio_file.url }}"><span class="glyphicon glyphicon-play"></span>&nbsp; Play</button>
+							</th>
+							<th>
+								<a href="{% url 'music:favourite' song.id %}" class="btn-favorite"><span class="glyphicon {% if song.is_favourite %}glyphicon-heart{% else %}glyphicon-heart-empty{% endif %}"></span>
+								</a>
+							</th>
+							<th>
+								<a href="#"><span class="glyphicon glyphicon-remove"></span>
+							</th>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+{% else %}
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<p class="warning">No file found</p>
+		</div>
+	</div>
+{% endif %}
+
+{% endblock %}

@@ -18,7 +18,7 @@ basedir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Create your views here.
 @login_required
 def index(request):
-	remotes =Remote.objects.filter(user=request.user)
+	remotes = Remote.objects.filter(user=request.user)
 	return render(request, 'television/index.html', {'remotes':remotes})
 
 @login_required

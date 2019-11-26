@@ -1,0 +1,24 @@
+{% extends 'eventCalendar/base.html' %}
+
+{% block title %}Calendar{% endblock %}
+
+{% block content_title %}Calendar{% endblock %}
+
+{% block voiceRecognizer %}onload="startConverting()"{% endblock %}
+
+{% block crumbs %}
+    &rsaquo; <a href="{% url 'clock:index' %}">Clock</a>
+{% endblock %}
+
+
+{% block content %}
+<div class="clearfix">
+	<a class="btn btn-info left" href="{% url 'eventCalendar:calendar' %}?{{ prev_month }}"> Previous Month </a>
+	<a class="btn btn-info right" href="{% url 'eventCalendar:calendar' %}?{{ next_month }}"> Next Month </a>
+	<a class="btn btn-info right" href="{% url 'eventCalendar:event_new' %}"> New Event </a>
+	<h3 class="text-center"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calendar</b></h3>
+</div>
+
+{{ calendar }}
+
+{% endblock %}

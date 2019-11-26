@@ -25,13 +25,12 @@ from .voice_recognizer import get_redirect_url
 # 		else:
 # 			return redirect('home')
 
-
 def voice_recognizer(request):
 	if request.method == 'POST':
 		# print("data")
 		data = request.POST.get('target')
 		print(data)
-		redirect_url = get_redirect_url(data,request.user)
+		redirect_url = get_redirect_url(data,request.user.get_username())
 		if redirect_url == 0:
 			# return redirect('home')
 			print("Invalid voice command found")

@@ -1,0 +1,49 @@
+{% extends 'weather/base.html' %}
+
+{% block title %}Weather Module{% endblock %}
+
+{% block content_title %}Current Weather and Forecasts{% endblock %}
+
+{% block voiceRecognizer %}onload="startConverting()"{% endblock %}
+
+{% block crumbs %}
+    &rsaquo; <a href="{% url 'weather:index' %}">Weather</a>
+{% endblock %}
+
+{% block content %}
+    {% include 'weather/messages.html' %}
+    <div class="row">			
+        <div class="col-sm-2 col-sm-offset-4 col-md-2 col-sm-offset-4 col-2">
+            <div id="openweathermap-widget-15"></div>
+            <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 15,cityid: '1262546',appid: '3196433639887d6b6ab0af665e2dc25d',units: 'metric',containerid: 'openweathermap-widget-15',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
+        </div>
+        <div class="col-sm-2 col-md-2 col-2">
+            <div class="panel weather" style="background-color: rgb(223, 174, 67);">
+                <p>
+                    <u><strong>Additional Details</strong></u>
+                    <br>
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr>
+                            <td><span class="modText">Min Temp:</span></td>
+                            <td><span class="label label-info">{{ weather_data.minTemp }}° C</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="modText">Max Temp:</span></td>
+                            <td><span class="label label-info">{{ weather_data.maxTemp }}° C</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="modText">Sunrise:</span></td>
+                            <td><span class="label label-info">{{ weather_data.rise }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="modText">Sunset:</span></td>
+                            <td><span class="label label-info">{{ weather_data.set }}</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
