@@ -344,3 +344,24 @@ open music,/music/
 open music,/music/
 open music,/music/
 music,/music/
+open calculator,/calculator/
+open home,/home/
+open tv,/television/
+go to home,/home/
+show weather,/television/weather-tv/remote-models
+open music,/music/
+open home,/home/
+open music,/music/
+call akhilesh,/mobile/call/akhilesh
+call,/mobile/call/select-contact/
+open contact,/mobile/contacts/
+mobile,/mobile/
+call akhilesh,/mobile/call/akhilesh
+create contact,/mobile/contact/add/
+open contacts,/mobile/contacts/
+add contact,/mobile/contact/add/
+message akhilesh,/mobile/message/akhilesh
+music,/music/
+call play,/mobile/call/play
+open weather,/weather/
+go to home,/home/

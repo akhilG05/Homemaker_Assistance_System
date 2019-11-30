@@ -10,36 +10,53 @@ import csv
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 def preprocess_text_data(raw_text_data):
+	#home
 	if (raw_text_data == 'open home') or (raw_text_data == 'go to home') or (raw_text_data == 'go home') or (raw_text_data == 'open homepage') or (raw_text_data == 'homepage') or (raw_text_data == 'go to homepage') or (raw_text_data == 'go homepage'):
 		raw_text_data = "home"
+	#signin	
 	elif (raw_text_data == 'sign in') or (raw_text_data == 'open login page') or (raw_text_data == 'open sign in page') or (raw_text_data == 'login page') or (raw_text_data == 'log me in') or (raw_text_data == 'sign me in') or (raw_text_data == 'sign in page'):
 		raw_text_data = "login"
+	#mobile	
 	elif raw_text_data == 'open mobile':
 		raw_text_data = raw_text_data.split( )
 		raw_text_data =  raw_text_data[1]
+	#contacts	
 	elif (raw_text_data == 'open contacts') or (raw_text_data == 'show contacts') or (raw_text_data == 'open contact') or (raw_text_data == 'show contact') or (raw_text_data == 'contacts book') or (raw_text_data == 'phone book') or (raw_text_data == 'contact book') or (raw_text_data == 'go to contacts'):
 		raw_text_data = "contacts"
-	elif ((raw_text_data == 'open tv') or (raw_text_data == 'open TV') or (raw_text_data == 'open television')):
+	#tv
+	elif ((raw_text_data == 'open tv') or (raw_text_data == 'open TV') or (raw_text_data == 'go to TV') or (raw_text_data == 'go to television') or (raw_text_data == 'open television')):
 		raw_text_data = raw_text_data.split( )
 		raw_text_data =  raw_text_data[1]
+	#remote	
 	elif (raw_text_data == 'Add Remote') or (raw_text_data == 'add remote') or (raw_text_data == 'open remote') or (raw_text_data == 'remote') or (raw_text_data == 'go to remote') or (raw_text_data == 'show remote') or (raw_text_data == 'select remote') or (raw_text_data == 'show remote list'):
 		raw_text_data = "remote"
-	elif (raw_text_data == 'open contacts') or (raw_text_data == 'show contacts') or (raw_text_data == 'open contact') or (raw_text_data == 'show contact') or (raw_text_data == 'contacts book') or (raw_text_data == 'phone book') or (raw_text_data == 'contact book') or (raw_text_data == 'go to contacts'):
-		raw_text_data = "contacts"
+	# elif (raw_text_data == 'open contacts') or (raw_text_data == 'show contacts') or (raw_text_data == 'open contact') or (raw_text_data == 'show contact') or (raw_text_data == 'contacts book') or (raw_text_data == 'phone book') or (raw_text_data == 'contact book') or (raw_text_data == 'go to contacts'):
+		# raw_text_data = "contacts"
+	#news
 	elif (raw_text_data == 'open news') or (raw_text_data == 'news') or (raw_text_data == 'go to news') or (raw_text_data == 'show news') or (raw_text_data == 'news open'):
 		raw_text_data = "news"
+	#calculator
 	elif (raw_text_data == 'open calculator') or (raw_text_data == 'calculator') or (raw_text_data == 'go to calculator') or (raw_text_data == 'show calculator') or (raw_text_data == 'calculator open'):
 		raw_text_data = "calculator"
+	#clock
 	elif (raw_text_data == 'open clock') or (raw_text_data == 'clock') or (raw_text_data == 'go to clock') or (raw_text_data == 'show clock') or (raw_text_data == 'clock show'):
 		raw_text_data = "clock"
+	#alarm	
 	elif (raw_text_data == 'open alarm') or (raw_text_data == 'alarm') or (raw_text_data == 'go to alarm') or (raw_text_data == 'show alarm') or (raw_text_data == 'set alarm'):
 		raw_text_data = "alarm"
+	#calendar	
 	elif (raw_text_data == 'open calendar') or (raw_text_data == 'calendar') or (raw_text_data == 'go to calendar') or (raw_text_data == 'show calendar') or (raw_text_data == 'calendar show'):
 		raw_text_data = "calendar"
+	#music	
 	elif (raw_text_data == 'open music') or (raw_text_data == 'music') or (raw_text_data == 'go to music') or (raw_text_data == 'show music') or (raw_text_data == 'play music') or (raw_text_data == 'songs'):
 		raw_text_data = "music"
+	#condition
 	elif (raw_text_data == 'show current conditions') or (raw_text_data == 'current conditions') or (raw_text_data == 'show room temperature') or (raw_text_data == 'what is room temperature') or (raw_text_data == 'show room humidity') or (raw_text_data == 'what is room humidity') or (raw_text_data == 'open current conditions'):
 		raw_text_data = "room"
+	#weather
+	elif (raw_text_data == 'show current weather') or (raw_text_data == 'current weather') or (raw_text_data == 'weather') or (raw_text_data == 'how is weather today') or (raw_text_data == 'go to weather') or (raw_text_data == 'open weather') or (raw_text_data == 'open current weather'):
+		raw_text_data = "weather"
+	
 	elif (("open" in raw_text_data) or ("show" in raw_text_data)) and (("contacts" in raw_text_data) or ("contact" in raw_text_data)):
 		raw_text_data = raw_text_data.split( )
 		for text_Data in raw_text_data:
@@ -90,6 +107,9 @@ def get_redirect_url(raw_text_data,user):
 	elif data == 'room':
 		responseurl = 'room:index'
 		slug = ''
+	elif data == 'weather':
+		responseurl = 'weather:index'
+		slug = ''	
 	elif data == 'music':
 		responseurl = 'music:index'
 		slug = ''
