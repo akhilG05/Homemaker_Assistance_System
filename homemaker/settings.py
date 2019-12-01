@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'playlist',
     'eventCalendar',
     'room',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [

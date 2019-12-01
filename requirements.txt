@@ -4,3 +4,5 @@ requests
 pyserial
 RPi.GPIO
 django-cors-headers
+paho-mqtt
+newsapi-python
