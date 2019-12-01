@@ -53,15 +53,12 @@ def preprocess_text_data(raw_text_data):
 	#condition
 	elif (raw_text_data == 'show current conditions') or (raw_text_data == 'current conditions') or (raw_text_data == 'show room temperature') or (raw_text_data == 'what is room temperature') or (raw_text_data == 'show room humidity') or (raw_text_data == 'what is room humidity') or (raw_text_data == 'open current conditions'):
 		raw_text_data = "room"
-<<<<<<< HEAD
 	elif (raw_text_data == 'show team') or (raw_text_data == 'team') or (raw_text_data == 'open team page') or (raw_text_data == 'meet the team') or (raw_text_data == 'team page') or (raw_text_data == 'open team'):
 		raw_text_data = "team"
-=======
 	#weather
 	elif (raw_text_data == 'show current weather') or (raw_text_data == 'current weather') or (raw_text_data == 'weather') or (raw_text_data == 'how is weather today') or (raw_text_data == 'go to weather') or (raw_text_data == 'open weather') or (raw_text_data == 'open current weather'):
 		raw_text_data = "weather"
 	
->>>>>>> 31ae3028b1cedccc639dedfcc0721ce378c5d59e
 	elif (("open" in raw_text_data) or ("show" in raw_text_data)) and (("contacts" in raw_text_data) or ("contact" in raw_text_data)):
 		raw_text_data = raw_text_data.split( )
 		for text_Data in raw_text_data:
