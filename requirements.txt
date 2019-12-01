@@ -1,8 +1,8 @@
-Django==2.2.4
+Django
 django_extensions
 requests
 pyserial
-RPi.GPIO
+RPi-GPIO
 django-cors-headers
 paho-mqtt
 newsapi-python
