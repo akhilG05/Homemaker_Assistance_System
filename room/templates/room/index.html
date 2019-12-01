@@ -1,0 +1,35 @@
+{% extends 'weather/base.html' %}
+
+{% block title %}Weather Module{% endblock %}
+
+{% block voiceRecognizer %}onload="startConverting()"{% endblock %}
+
+{% block crumbs %}
+    &rsaquo; <a href="{% url 'weather:index' %}">Weather</a>
+{% endblock %}
+
+{% block content %}
+    {% include 'weather/messages.html' %}
+    <div class="row">			
+        <div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5 col-2">
+            <div class="panel weather" style="background-color: rgb(223, 174, 67);">
+                <p>
+                    <u><strong>Current Conditions</strong></u>
+                    <br>
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr>
+                            <td><span class="modText">Room Temperature:</span></td>
+                            <td><span class="label label-info">{{ weather_data.minTemp }}° C</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="modText">Room Humidity:</span></td>
+                            <td><span class="label label-info">{{ weather_data.maxTemp }}</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
