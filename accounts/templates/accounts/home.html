@@ -110,23 +110,22 @@
 		</a>
 	</div>
 <!--Second row ends here-->
+
+<div class="row">			
+	<a href="">
+		<div class="col-sm-2 col-md-2 col-2">
+			<div class="panel clock" style="background-color: #FF5733;">
+				<p>Emergency</p>
+			</div>
+		</div>
+	</a>
+	<a href="{% url 'room:index' %}">
+		<div class="col-sm-2 col-sm-offset-8 col-md-2 col-sm-offset-8 col-2">
+			<div class="panel clock" style="background-color: #FF5733;">
+				<p>Current Conditions</p>
+			</div>
+		</div>
+	</a>
+</div>
 {% endblock %}
 
-{% block note %}
-	<div class="row">			
-		<a href="">
-			<div class="col-sm-2 col-md-2 col-2">
-				<div class="panel clock" style="background-color: #FF5733;">
-					<p>Emergency</p>
-				</div>
-			</div>
-		</a>
-		<a href="{% url 'room:index' %}">
-			<div class="col-sm-2 col-sm-offset-8 col-md-2 col-sm-offset-8 col-2">
-				<div class="panel clock" style="background-color: #FF5733;">
-					<p>Current Conditions</p>
-				</div>
-			</div>
-		</a>
-	</div>
-{% endblock %}
