@@ -140,3 +140,4 @@ open contact,/mobile/contacts/
 open contact,/mobile/contacts/
 go to home,/home/
 open music,/music/
+open tv,/television/

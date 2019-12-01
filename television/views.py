@@ -71,7 +71,9 @@ def remote_area(request, slug):
 @login_required
 def sendIRdata(request):
 	if request.method == 'POST':
+		print("processing")
 		if request.is_ajax():
+			print("in ajax")
 			button = request.POST.get('button')
 			remoteSlug = request.POST.get('remoteSlug')
 			remote = Remote.objects.get(user=request.user,slug=remoteSlug)
