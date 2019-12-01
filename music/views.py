@@ -59,7 +59,7 @@ def create_album(request):
             new_album = form.save(commit=False)
             new_album.user = request.user
             new_album.save()
-            return redirect('music:detail', pk=new_album.id)
+            return redirect('music:detail', pk=new_album.album_title)
     else:
         form = AlbumForm()
     return render(request, 'music/album_form.html', {'form' : form})

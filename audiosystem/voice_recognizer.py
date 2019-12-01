@@ -40,6 +40,8 @@ def preprocess_text_data(raw_text_data):
 		raw_text_data = "music"
 	elif (raw_text_data == 'show current conditions') or (raw_text_data == 'current conditions') or (raw_text_data == 'show room temperature') or (raw_text_data == 'what is room temperature') or (raw_text_data == 'show room humidity') or (raw_text_data == 'what is room humidity') or (raw_text_data == 'open current conditions'):
 		raw_text_data = "room"
+	elif (raw_text_data == 'show team') or (raw_text_data == 'team') or (raw_text_data == 'open team page') or (raw_text_data == 'meet the team') or (raw_text_data == 'team page') or (raw_text_data == 'open team'):
+		raw_text_data = "team"
 	elif (("open" in raw_text_data) or ("show" in raw_text_data)) and (("contacts" in raw_text_data) or ("contact" in raw_text_data)):
 		raw_text_data = raw_text_data.split( )
 		for text_Data in raw_text_data:
@@ -92,6 +94,9 @@ def get_redirect_url(raw_text_data,user):
 		slug = ''
 	elif data == 'music':
 		responseurl = 'music:index'
+		slug = ''
+	elif data == 'team':
+		responseurl = 'team'
 		slug = ''
 	elif "open contact" in data:
 		name = data.split( )
