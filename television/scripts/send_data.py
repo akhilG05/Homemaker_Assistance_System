@@ -27,4 +27,4 @@ def irSend(decimalCode):
 	client.on_publish = on_publish
 	client.connect(Broker,Port)   
 	time.sleep(1)
-	client.publish("television/remote",data)
+	client.publish("/remote/IRsignal",data)
