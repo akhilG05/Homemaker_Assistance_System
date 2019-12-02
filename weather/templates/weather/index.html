@@ -13,11 +13,11 @@
 {% block content %}
     {% include 'weather/messages.html' %}
     <div class="row">			
-        <div class="col-sm-2 col-sm-offset-4 col-md-2 col-sm-offset-4 col-2">
+        <div class="col-sm-2 col-sm-offset-2 col-md-2 col-sm-offset-2 col-2">
             <div id="openweathermap-widget-15"></div>
             <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 15,cityid: '1262546',appid: '3196433639887d6b6ab0af665e2dc25d',units: 'metric',containerid: 'openweathermap-widget-15',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
         </div>
-        <div class="col-sm-2 col-md-2 col-2">
+        <div class="col-sm-2 col-sm-offset-2 col-md-2 col-sm-offset-2 col-2">
             <div class="panel weather" style="background-color: rgb(223, 174, 67);">
                 <p>
                     <u><strong>Additional Details</strong></u>
