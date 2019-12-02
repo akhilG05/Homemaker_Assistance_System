@@ -141,3 +141,14 @@ open contact,/mobile/contacts/
 go to home,/home/
 open music,/music/
 open tv,/television/
+showroom bangalore,/television/bangalore-tv/remote-models
+open room temperature,/room/
+room,/room/
+room,/room/
+humidity,/room/
+go to home,/home/
+open news,/news/
+open tv,/television/
+open mobile,/mobile/
+go to home,/home/
+open weather,/weather/
