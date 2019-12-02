@@ -1,5 +1,3 @@
-# import RPi.GPIO as GPIO
-import socket
 import time
 import paho.mqtt.client as mqtt
 
