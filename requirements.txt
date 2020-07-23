@@ -1,7 +1,7 @@
 django_extensions
 requests
 pyserial
-RPi.GPIO
+#RPi.GPIO
 django-cors-headers
 paho-mqtt
 newsapi-python
