@@ -20,5 +20,13 @@ import os,time
 # 	humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 # 	return '{0:0.1f}'.format(humidity)
 
-# temperature = temperature()
-# humidity = humidity()
+def temperature():
+	temperature = 24
+	return temperature
+	
+def humidity():
+	humidity = 10
+	return humidity
+
+temperature = temperature()
+humidity = humidity()
